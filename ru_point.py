@@ -60,13 +60,16 @@ while True:
             ru_str = num_json[i][0]
 
     for i in strs:
-        if i == ru_str:
-            point += strs[i] * 2
-        elif int(i) == ru_num:
-            if int(i) == 0:
-                point += strs[i] * 15
-            else:
-                point += strs[i] * 5
+        try:
+            if i == ru_str:
+                point += strs[i] * 2
+            elif int(i) == ru_num:
+                if int(i) == 0:
+                    point += strs[i] * 15
+                else:
+                    point += strs[i] * 5
+        except Exception:
+            pass
 
     for i in strs:
         point -= strs[i]
