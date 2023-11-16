@@ -1,6 +1,6 @@
 import json
 
-with open("ru_all.json","r",encoding="utf-8_sig") as f:
+with open("ru_all.json", "r", encoding="utf-8_sig") as f:
     num_json = json.load(f)
 
 while True:
@@ -9,33 +9,33 @@ while True:
     ru_num = 0
     ru_str = ""
     point = 0
-    end=""
-    strs={}
+    end = ""
+    strs = {}
     bet = 0
-    temp_dict={}
+    temp_dict = {}
 
     #0 x15 num x5 color x2
     while True:
-        str = input("数字に賭けるなら1,色に賭けるなら2,賭け終わるなら3を入力: ")
+        str = input("数字に賭けるなら1, 色に賭けるなら2, 賭け終わるなら3を入力: ")
         if str == "3":
             print("以下の内容で確定しますか？")
             for i in strs:
-                print(f"{i} = {strs[i]} ",end=",")
+                print(f"{i} = {strs[i]} ", end=",")
             print()
             while True:
                 end = input("y or n ?")
-                if end=="y":
+                if end == "y":
                     break
-                elif end=="n":
-                    strs=[]
+                elif end == "n":
+                    strs = []
                 else:
                     print("入力し直してください")
                     continue
-            if end=="y":
+            if end == "y":
                 break
         elif str == "2":
             while True:
-                color = input("赤に賭けるならred,黒に賭けるならblackを入力: ")
+                color = input("赤に賭けるならred, 黒に賭けるならblackを入力: ")
                 if color == "red" or color == "black":
                     bet = int(input("ベット数を入力: "))
                     break
@@ -74,5 +74,5 @@ while True:
     for i in strs:
         point -= strs[i]
 
-    print(f"利益は {point}")
+    print(f"利益は {point} です。")
     input("進めるためにはEnterを押してください\n")
