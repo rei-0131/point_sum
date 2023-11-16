@@ -3,6 +3,14 @@ import json
 with open("ru_all.json", "r", encoding="utf-8_sig") as f:
     num_json = json.load(f)
 
+# 0が当たったときの倍率
+ZERO_POINT  = 15
+# 数字が当たったときの倍率
+NUM_POINT   = 5
+# 色が当たったときの倍率
+COLOR_POINT = 2
+
+
 while True:
     str =""
     color = ""
@@ -14,7 +22,6 @@ while True:
     bet = 0
     temp_dict = {}
 
-    #0 x15 num x5 color x2
     while True:
         str = input("数字に賭けるなら1, 色に賭けるなら2, 賭け終わるなら3を入力: ")
         if str == "3":
@@ -62,12 +69,12 @@ while True:
     for i in strs:
         try:
             if i == ru_str:
-                point += strs[i] * 2
+                point += strs[i] * COLOR_POINT
             elif int(i) == ru_num:
                 if int(i) == 0:
-                    point += strs[i] * 15
+                    point += strs[i] * ZERO_POINT
                 else:
-                    point += strs[i] * 5
+                    point += strs[i] * NUM_POINT
         except Exception:
             pass
 
